@@ -5,9 +5,9 @@ After=network.target
 [Service]
 Type=simple
 # 替换为你的实际脚本所在目录
-WorkingDirectory=/opt/mfcw_restart_script 
+WorkingDirectory=/opt/mofangrestart
 # 替换为 python3 和脚本的绝对路径
-ExecStart=/usr/bin/python3 /opt/mfcw_restart_script/web_console.py 
+ExecStart=/usr/bin/python3 /opt/mofangrestart/web_console.py 
 Restart=always
 RestartSec=5s
 User=root

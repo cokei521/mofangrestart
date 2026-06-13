@@ -2,10 +2,10 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 API_DOMAIN="https://www.heyunidc.cn"
-ACCOUNT="cokei521@qq.com"       # 替换为你的账户名
-PASSWORD="JtqIWj1aXus3"      # 替换为你的API Key
+ACCOUNT="用户名@qq.com"       # 替换为你的账户名
+PASSWORD="用户API"      # 替换为你的API Key
 JWT_CACHE_FILE="${SCRIPT_DIR}/jwt_${ACCOUNT}.cache"
-LOG_FILE="${SCRIPT_DIR}/monitor.jsonl" # 使用 jsonl 格式存储日志
+LOG_FILE="${SCRIPT_DIR}/monitor.jsonl" # 使用 jsonl 格式存储日志 如果使用宝塔定时任务请修改路径所有文件在同一个目录下
 
 if ! command -v jq &> /dev/null; then
     echo '{"time":"'$(date -Iseconds)'","level":"ERROR","msg":"jq not installed"}' >> "$LOG_FILE"

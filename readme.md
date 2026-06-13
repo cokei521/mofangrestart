@@ -1,15 +1,25 @@
 # 魔方财务 主机自动检查与重启脚本
 
-自动检测 魔方财务（核云为例） 平台上 dcimcloud 类型的主机状态，在状态异常重启前检查ping, 如果ping正常则不执行重启（主要针对主控异常的“未知”状态）。。
+自动检测 魔方财务（核云为例） 平台上 dcimcloud 类型的主机状态，在状态异常重启前检查ping, 如果ping正常则不执行重启（主要针对主控异常的“未知”状态）。
 
+# 🚀 运行步骤
+确保 heyun_monitor.sh 和 web_console.py 在同一个目录下。
+赋予执行权限并启动 Web 控制台：
+```bash
+chmod +x heyun_monitor.sh web_console.py
+python3 web_console.py
+```
 ## 配置
 
 编辑 `heyun_monitor.sh` 顶部的配置项：
 
 ```bash
-API_DOMAIN="https://www.heyunidc.cn"
-ACCOUNT="your_account"
-PASSWORD="you_api_key"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+API_DOMAIN="https://www.heyunidc.cn"  # 平台地址
+ACCOUNT="cokei521@qq.com"       # 替换为你的账户名
+PASSWORD="JtqIWj1aXus3"      # 替换为你的API Key
+JWT_CACHE_FILE="${SCRIPT_DIR}/jwt_${ACCOUNT}.cache"
+LOG_FILE="${SCRIPT_DIR}/monitor.jsonl" # 使用 jsonl 格式存储日志 修改路径确保monitor.jsonl与heyun_monitor.sh 和 web_console.py 在同一个目录下
 ```
 
 ## 依赖

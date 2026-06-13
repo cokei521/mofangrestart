@@ -1,14 +1,20 @@
 # 魔方财务 主机自动检查与重启脚本
 
-自动检测 魔方财务（核云为例） 平台上 dcimcloud 类型的主机状态，在状态异常重启前检查ping, 如果ping正常则不执行重启（主要针对主控异常的“未知”状态）。
+用于自动检查魔方财务（核云为例）平台上的云服务器状态，并在服务器关机或不可达时自动执行硬重启
 
 # 🚀 运行步骤
+
 确保 heyun_monitor.sh 和 web_console.py 在同一个目录下。
+
 赋予执行权限并启动 Web 控制台：
+
 ```bash
 chmod +x heyun_monitor.sh web_console.py
 python3 web_console.py
 ```
+通过浏览器访问：
+打开浏览器访问 http://<你的服务器IP>:8080，即可实时查看格式化的操作日志。
+
 ## 配置
 
 编辑 `heyun_monitor.sh` 顶部的配置项：
